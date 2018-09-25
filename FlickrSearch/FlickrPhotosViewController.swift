@@ -160,20 +160,25 @@ extension FlickrPhotosViewController {
     override func collectionView(_ collectionView: UICollectionView,
                                  viewForSupplementaryElementOfKind kind: String,
                                  at indexPath: IndexPath) -> UICollectionReusableView {
-        //1
-        switch kind {
-        //2
-        case UICollectionElementKindSectionHeader:
-            //3
-            let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind,
-                                                                                   withReuseIdentifier: "FlickrPhotoHeaderView",
-                                                                                   for: indexPath) as! FlickrPhotoHeaderView
-            headerView.label.text = searches[(indexPath as NSIndexPath).section].searchTerm
-            return headerView
-        default:
-            //4
-            assert(false, "Unexpected element kind")
-        }
+//        //1
+//        switch kind {
+//        //2
+//        case UICollectionElementKindSectionHeader:
+//            //3
+//            let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind,
+//                                                                                   withReuseIdentifier: "FlickrPhotoHeaderView",
+//                                                                                   for: indexPath) as! FlickrPhotoHeaderView
+//            headerView.label.text = searches[(indexPath as NSIndexPath).section].searchTerm
+//            return headerView
+//        default:
+//            //4
+//            assert(false, "Unexpected element kind")
+//        }
+        let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind,
+                                                                         withReuseIdentifier: "FlickrPhotoHeaderView",
+                                                                         for: indexPath) as! FlickrPhotoHeaderView
+        headerView.label.text = searches[(indexPath as NSIndexPath).section].searchTerm
+        return headerView
     }
     
     //3
